@@ -1,31 +1,78 @@
 # Nova-AI
 
-Nova-AI is an AI-powered assistant designed to intelligently respond to user queries, provide recommendations, and perform AI-driven tasks efficiently. It leverages modern AI models and vector-based information retrieval for fast and accurate responses.
+Nova-AI is an AI-powered assistant designed to intelligently respond to user queries, provide recommendations, and perform AI-driven tasks efficiently. It leverages modern AI models from Hugging Face and vector-based information retrieval for fast and accurate responses.
 
 ---
 
-## **Problem Statement**
+## Problem Statement
 
-Many users face challenges interacting with AI systems due to lack of simplicity and efficient query handling.  
-Nova-AI aims to solve this problem by creating an intuitive, web-based AI assistant that can understand natural language queries and provide accurate, context-aware responses in real-time.
+Interacting with AI systems can be complex and unintuitive. Nova-AI simplifies this by providing a user-friendly, web-based AI assistant that understands natural language and delivers accurate, context-aware responses in real-time.
 
 ---
 
-## **Tech Stack Used**
+## Tech Stack
 
 - **Python** – Main programming language  
 - **Flask** – Backend web framework  
 - **HTML / CSS / JavaScript** – Frontend interface  
-- **OpenAI API** – AI-powered responses  
-- **Vector Stores / LangChain** – Efficient query processing  
-- **Other libraries**: `numpy`, `pandas`, `requests`, etc. (listed in `requirements.txt`)  
+- **Hugging Face API** – AI-powered responses  
+- **Vector Stores / LangChain** – Efficient query processing and embeddings  
+- **Other libraries**: `numpy`, `requests`, `python-dotenv`, `faiss-cpu`, `gunicorn`, etc.
 
 ---
 
-## **Steps to Run the Project**
+## Features
 
-1. **Clone the repository**:
+- **Natural Language Query Handling** – Ask questions and get AI-powered responses  
+- **Mode Toggle** – Switch between light and dark themes for a better user experience  
+- **Voice Input** – Speak to the assistant and receive responses    
+- **Vector-Based Search** – Fast and context-aware information retrieval  
+- **User-Friendly Web Interface** – Clean and responsive UI  
+- **Extensible and Modular** – Easy to add new features or AI models  
 
-```bash
-git clone https://github.com/anushkaagr-2006/Nova-AI.git
-cd Nova-AI
+---
+
+## Project Structure
+
+Nova-AI/
+├── app.py # Main Flask app
+├── vector_store.py # Vector storage logic
+├── templates/
+│ └── index.html # Frontend HTML
+├── static/
+│ ├── style.css/
+│ └── script.js/
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
+└── .gitignore # Ignore sensitive and compiled files
+
+---
+
+## Screenshots / Demo
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Chat Interface
+![Chat Interface](screenshots/chat.png)
+
+### Dark Mode & Voice Input
+![Dark Mode](screenshots/dark-mode.png)  
+![Voice Input](screenshots/voice-input.png)
+
+---
+
+## Notes
+
+- `.env` contains sensitive keys and is **not included** in the repository  
+- The project can be further enhanced with multi-language support, advanced AI models, and additional personalization features  
+
+---
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+⭐ If you like this project, give it a star!
