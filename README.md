@@ -9,6 +9,11 @@ Nova-AI is an AI-powered assistant designed to intelligently respond to user que
 Interacting with AI systems can be complex and unintuitive. Nova-AI simplifies this by providing a user-friendly, web-based AI assistant that understands natural language and delivers accurate, context-aware responses in real-time.
 
 ---
+## Live Demo
+
+Check out the deployed Nova-AI here: [Live Demo](https://nova-ai-5lb9.onrender.comm)
+
+---
 
 ## Tech Stack
 
