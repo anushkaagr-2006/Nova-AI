@@ -1,22 +1,14 @@
-// Nova AI - Enhanced JavaScript with All Features
-
-// State
 let currentUser = null;
 let currentConversationId = null;
 let isRecording = false;
 let recognition = null;
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     checkAuthStatus();
     setupEventListeners();
     setupSpeechRecognition();
     initializeMarked();
 });
-
-// ============================================================
-// AUTHENTICATION
-// ============================================================
 
 async function checkAuthStatus() {
     try {
@@ -51,7 +43,6 @@ function showApp() {
     document.getElementById('user-avatar').textContent = currentUser.username[0].toUpperCase();
 }
 
-// Login
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -84,7 +75,6 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     }
 });
 
-// Signup
 document.getElementById('signup-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -118,7 +108,6 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     }
 });
 
-// Toggle auth forms
 document.getElementById('show-signup').addEventListener('click', () => {
     document.getElementById('login-form').style.display = 'none';
     document.getElementById('signup-form').style.display = 'flex';
@@ -131,7 +120,6 @@ document.getElementById('show-login').addEventListener('click', () => {
     document.getElementById('signup-error').style.display = 'none';
 });
 
-// Logout
 document.getElementById('logout-btn').addEventListener('click', async () => {
     try {
         await fetch('/auth/logout', { method: 'POST' });
@@ -144,21 +132,15 @@ document.getElementById('logout-btn').addEventListener('click', async () => {
     }
 });
 
-// ============================================================
-// USER SETTINGS
-// ============================================================
-
 function applyUserSettings(user) {
-    // Apply theme
+    
     setTheme(user.theme);
 }
 
-// Theme switching
 function setTheme(theme) {
     const body = document.body;
     body.className = theme === 'dark' ? 'dark-mode' : 'light-mode';
     
-    // Update active button
     document.querySelectorAll('[data-theme]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.theme === theme);
     });
@@ -182,10 +164,6 @@ document.querySelectorAll('[data-theme]').forEach(btn => {
         }
     });
 });
-
-// ============================================================
-// CONVERSATIONS
-// ============================================================
 
 async function loadConversations() {
     try {
@@ -225,14 +203,12 @@ async function loadConversation(conversationId) {
         
         currentConversationId = conversationId;
         
-        // Clear and load messages
         clearMessages();
         
         data.conversation.messages.forEach(msg => {
             addMessage(msg.content, msg.role);
         });
         
-        // Update active state
         document.querySelectorAll('.conversation-item').forEach(item => {
             item.classList.remove('active');
         });
@@ -248,15 +224,10 @@ document.getElementById('new-chat-btn').addEventListener('click', () => {
     clearMessages();
     showWelcomeScreen();
     
-    // Remove active state from conversations
     document.querySelectorAll('.conversation-item').forEach(item => {
         item.classList.remove('active');
     });
 });
-
-// ============================================================
-// EXPORT
-// ============================================================
 
 document.getElementById('export-txt-btn').addEventListener('click', async () => {
     if (!currentConversationId) {
@@ -300,10 +271,6 @@ function downloadFile(blob, filename) {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
-
-// ============================================================
-// VOICE INPUT
-// ============================================================
 
 function setupSpeechRecognition() {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -357,10 +324,6 @@ function stopRecording() {
     document.getElementById('voice-btn').classList.remove('recording');
 }
 
-// ============================================================
-// MESSAGES & CHAT
-// ============================================================
-
 function setupEventListeners() {
     const sendBtn = document.getElementById('send-btn');
     const messageInput = document.getElementById('message-input');
@@ -373,8 +336,6 @@ function setupEventListeners() {
             sendMessage();
         }
     });
-    
-    // Auto-resize textarea
     messageInput.addEventListener('input', () => {
         messageInput.style.height = 'auto';
         messageInput.style.height = messageInput.scrollHeight + 'px';
@@ -387,18 +348,14 @@ async function sendMessage() {
     
     if (!message) return;
     
-    // Hide welcome screen
     hideWelcomeScreen();
     
-    // Add user message
     addMessage(message, 'user');
     input.value = '';
     input.style.height = 'auto';
     
-    // Show typing indicator
     showTypingIndicator();
     
-    // Disable send button
     const sendBtn = document.getElementById('send-btn');
     sendBtn.disabled = true;
     
@@ -414,18 +371,14 @@ async function sendMessage() {
         
         const data = await response.json();
         
-        // Update conversation ID
         if (data.conversation_id) {
             currentConversationId = data.conversation_id;
         }
         
-        // Hide typing indicator
         hideTypingIndicator();
         
-        // Add assistant message
         addMessage(data.reply, 'assistant');
         
-        // Reload conversations list
         if (currentUser) {
             loadConversations();
         }
@@ -452,11 +405,9 @@ function addMessage(content, role) {
     const contentDiv = document.createElement('div');
     contentDiv.className = 'message-content';
     
-    // Process content with Markdown and code highlighting
     if (role === 'assistant') {
         contentDiv.innerHTML = marked.parse(content);
         
-        // Apply syntax highlighting to code blocks
         contentDiv.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightElement(block);
         });
@@ -543,10 +494,6 @@ function scrollToBottom() {
         container.scrollTop = container.scrollHeight;
     }, 100);
 }
-
-// ============================================================
-// MARKDOWN CONFIGURATION
-// ============================================================
 
 function initializeMarked() {
     if (typeof marked !== 'undefined') {

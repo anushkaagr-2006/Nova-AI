@@ -25,26 +25,11 @@ Interacting with AI systems can be complex and unintuitive. Nova-AI simplifies t
 
 - **Natural Language Query Handling** – Ask questions and get AI-powered responses  
 - **Mode Toggle** – Switch between light and dark themes for a better user experience  
-- **Voice Input** – Speak to the assistant and receive responses    
+- **Voice Input** – Speak to the assistant and receive responses
+- **Export Chats** – Export the chats as txt or pdf  
 - **Vector-Based Search** – Fast and context-aware information retrieval  
 - **User-Friendly Web Interface** – Clean and responsive UI  
 - **Extensible and Modular** – Easy to add new features or AI models  
-
----
-
-## Project Structure
-
-Nova-AI/
-├── app.py # Main Flask app
-├── vector_store.py # Vector storage logic
-├── templates/
-│ └── index.html # Frontend HTML
-├── static/
-│ ├── style.css/
-│ └── script.js/
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
-└── .gitignore # Ignore sensitive and compiled files
 
 ---
 

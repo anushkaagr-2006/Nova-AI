@@ -1,4 +1,3 @@
-# vector_store.py
 import os
 import pickle
 from langchain.vectorstores import FAISS

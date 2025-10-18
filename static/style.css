@@ -1,57 +1,39 @@
-/**
- * AI Chatbot Interface Stylesheet
- * Modern glassmorphism design with smooth animations
- * Features: Responsive layout, accessibility, dark theme, custom scrollbars
- * @author Your Name
- * @version 2.0
- */
-
-/* ========== CSS CUSTOM PROPERTIES ========== */
 :root {
-  /* Color Palette */
   --primary-purple: #a36bff;
   --primary-purple-dark: #6d27e0;
   --purple-glow: rgba(180, 100, 255, 0.3);
   --purple-light: #e3d8ff;
   --purple-border: rgba(180, 100, 255, 0.4);
   --purple-bg: rgba(180, 100, 255, 0.15);
-  
-  /* Neutral Colors */
   --white-transparent: rgba(255, 255, 255, 0.07);
   --white-border: rgba(255, 255, 255, 0.2);
   --white-hover: rgba(255, 255, 255, 0.1);
   --text-primary: #f0f0f0;
   --text-secondary: #bbb;
   
-  /* Spacing */
   --spacing-xs: 6px;
   --spacing-sm: 10px;
   --spacing-md: 15px;
   --spacing-lg: 20px;
   
-  /* Border Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-full: 50%;
   
-  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
-  /* Shadows */
+
   --shadow-glow-purple: 0 0 20px var(--purple-glow);
   --shadow-glow-white: 0 0 8px rgba(255, 255, 255, 0.2);
   
-  /* Z-index layers */
   --z-base: 1;
   --z-dropdown: 100;
   --z-modal: 1000;
   --z-tooltip: 1100;
 }
 
-/* ========== GLOBAL RESET & BASE STYLES ========== */
 *,
 *::before,
 *::after {
@@ -83,7 +65,6 @@ body {
   position: relative;
 }
 
-/* Animated background particles (optional enhancement) */
 body::before {
   content: "";
   position: absolute;
@@ -104,8 +85,6 @@ body::before {
   100% { transform: translate(50px, 50px); }
 }
 
-/* ========== ACCESSIBILITY ========== */
-/* Screen reader only content */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -118,13 +97,11 @@ body::before {
   border-width: 0;
 }
 
-/* Focus styles for keyboard navigation */
 *:focus-visible {
   outline: 2px solid var(--primary-purple);
   outline-offset: 2px;
 }
 
-/* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -135,7 +112,6 @@ body::before {
   }
 }
 
-/* ========== CHAT CONTAINER ========== */
 .chat-container {
   width: 90%;
   max-width: 480px;
@@ -162,7 +138,6 @@ body::before {
               0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* ========== HEADER ========== */
 .chat-header {
   padding: var(--spacing-md);
   background: rgba(0, 0, 0, 0.2);
@@ -187,7 +162,6 @@ body::before {
   margin: 0;
 }
 
-/* Status indicator */
 .status-indicator {
   position: absolute;
   top: 50%;
@@ -206,7 +180,6 @@ body::before {
   50% { opacity: 0.6; transform: translateY(-50%) scale(1.2); }
 }
 
-/* ========== CHAT BOX ========== */
 .chat-box {
   flex: 1;
   padding: var(--spacing-md);
@@ -220,7 +193,6 @@ body::before {
   scrollbar-color: var(--white-border) transparent;
 }
 
-/* Custom scrollbar for webkit browsers */
 .chat-box::-webkit-scrollbar {
   width: 6px;
 }
@@ -239,7 +211,6 @@ body::before {
   background-color: var(--white-hover);
 }
 
-/* Empty state */
 .chat-box:empty::before {
   content: "Start a conversation with Nova...";
   display: flex;
@@ -252,7 +223,6 @@ body::before {
   text-align: center;
 }
 
-/* ========== MESSAGES ========== */
 .message {
   display: flex;
   flex-direction: column;
@@ -272,7 +242,6 @@ body::before {
   transition: transform var(--transition-fast);
 }
 
-/* Bot message styling */
 .bot-message {
   align-self: flex-start;
   background: var(--purple-bg);
@@ -291,7 +260,6 @@ body::before {
   opacity: 0.7;
 }
 
-/* User message styling */
 .user-message {
   align-self: flex-end;
   background: var(--white-hover);
@@ -309,14 +277,10 @@ body::before {
   font-size: 0.8rem;
   opacity: 0.7;
 }
-
-/* Message hover effect */
 .message:hover .bot-message,
 .message:hover .user-message {
   transform: translateX(2px);
 }
-
-/* Timestamp */
 .timestamp {
   display: block;
   font-size: 0.7rem;
@@ -324,8 +288,6 @@ body::before {
   margin-top: 4px;
   opacity: 0.6;
 }
-
-/* ========== TYPING INDICATOR ========== */
 .typing-indicator {
   display: flex;
   align-items: center;
@@ -370,8 +332,6 @@ body::before {
     transform: translateY(-8px);
   }
 }
-
-/* Legacy typing animation support */
 .typing {
   display: inline-block;
   width: 4px;
@@ -386,8 +346,6 @@ body::before {
   0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
-
-/* ========== INPUT AREA ========== */
 .input-container {
   display: flex;
   align-items: flex-end;
@@ -430,8 +388,6 @@ body::before {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-/* Send button */
 #send-btn {
   flex-shrink: 0;
   background: linear-gradient(
@@ -489,8 +445,6 @@ body::before {
   cursor: not-allowed;
   transform: none;
 }
-
-/* ========== ANIMATIONS ========== */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -513,7 +467,6 @@ body::before {
   }
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
   .chat-container {
     width: 95%;
@@ -556,12 +509,8 @@ body::before {
   }
 }
 
-/* ========== DARK MODE OPTIMIZATION ========== */
 @media (prefers-color-scheme: dark) {
-  /* Already optimized for dark mode by default */
 }
-
-/* ========== PRINT STYLES ========== */
 @media print {
   body {
     background: white;

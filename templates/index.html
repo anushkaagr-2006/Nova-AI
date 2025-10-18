@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova AI - Intelligent Assistant</title>
-    
-    <!-- Highlight.js for Code Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    
-    <!-- Marked.js for Markdown Parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <link rel="stylesheet" href="/static/style.css">
     
     <style>
-        /* Enhanced Styles */
         :root {
             --primary-color: #6366f1;
             --secondary-color: #8b5cf6;
@@ -51,14 +46,10 @@
             background-color: var(--bg-dark);
             color: var(--text-dark);
         }
-        
-        /* Layout */
         .app-container {
             display: flex;
             height: 100vh;
         }
-        
-        /* Sidebar */
         .sidebar {
             width: 280px;
             transition: background-color 0.3s;
@@ -121,8 +112,6 @@
         .new-chat-btn:hover {
             background: var(--secondary-color);
         }
-        
-        /* Conversation List */
         .conversations-list {
             flex: 1;
             overflow-y: auto;
@@ -170,8 +159,6 @@
             font-size: 12px;
             opacity: 0.6;
         }
-        
-        /* Settings */
         .sidebar-footer {
             padding: 20px;
             border-top: 1px solid rgba(0,0,0,0.1);
@@ -252,8 +239,7 @@
             background: #ef4444;
             color: white;
         }
-        
-        /* Main Chat Area */
+      
         .main-content {
             flex: 1;
             display: flex;
@@ -312,7 +298,6 @@
             color: white;
         }
         
-        /* Messages */
         .messages-container {
             flex: 1;
             overflow-y: auto;
@@ -396,7 +381,6 @@
             border: 1px solid #2a2a35;
         }
         
-        /* Code blocks */
         .message-content pre {
             background: #1e293b;
             padding: 16px;
@@ -415,7 +399,7 @@
             margin: 8px 0;
         }
         
-        /* Typing indicator */
+        
         .typing-indicator {
             display: none;
             gap: 12px;
@@ -460,7 +444,6 @@
             30% { transform: translateY(-10px); opacity: 1; }
         }
         
-        /* Input Area */
         .input-area {
             padding: 20px;
             border-top: 1px solid rgba(0,0,0,0.1);
@@ -564,7 +547,6 @@
             cursor: not-allowed;
         }
         
-        /* Auth Modal */
         .auth-modal {
             position: fixed;
             top: 0;
@@ -705,7 +687,6 @@
             border-radius: 6px;
         }
         
-        /* Welcome Screen */
         .welcome-screen {
             display: flex;
             flex-direction: column;
@@ -795,8 +776,7 @@
         .dark-mode .feature-desc {
             color: var(--text-dark);
         }
-        
-        /* Mobile Responsive */
+      
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
@@ -814,8 +794,7 @@
                 max-width: 95%;
             }
         }
-        
-        /* Scrollbar */
+      
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -840,12 +819,9 @@
     </style>
 </head>
 <body class="light-mode">
-    <!-- Auth Modal -->
     <div id="auth-modal" class="auth-modal">
         <div class="auth-container">
             <h2 class="auth-title">Welcome to Nova AI</h2>
-            
-            <!-- Login Form -->
             <form id="login-form" class="auth-form">
                 <div class="form-group">
                     <label class="form-label">Username</label>
@@ -861,8 +837,6 @@
                     Don't have an account? <a id="show-signup">Sign up</a>
                 </div>
             </form>
-            
-            <!-- Signup Form -->
             <form id="signup-form" class="auth-form" style="display: none;">
                 <div class="form-group">
                     <label class="form-label">Username</label>
@@ -885,9 +859,7 @@
         </div>
     </div>
     
-    <!-- Main App -->
     <div class="app-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="user-info">
@@ -901,7 +873,6 @@
             </div>
             
             <div class="conversations-list" id="conversations-list">
-                <!-- Conversations will be loaded here -->
             </div>
             
             <div class="sidebar-footer">
@@ -916,8 +887,6 @@
                 <button class="logout-btn" id="logout-btn">Logout</button>
             </div>
         </aside>
-        
-        <!-- Main Content -->
         <main class="main-content">
             <header class="chat-header">
                 <h1 class="chat-title" id="chat-title">Nova AI Assistant</h1>
@@ -928,7 +897,6 @@
             </header>
             
             <div class="messages-container" id="messages-container">
-                <!-- Welcome Screen -->
                 <div class="welcome-screen" id="welcome-screen">
                     <div class="welcome-icon">🤖</div>
                     <h2 class="welcome-title">Welcome to Nova AI</h2>
@@ -963,7 +931,6 @@
                     </div>
                 </div>
                 
-                <!-- Typing Indicator -->
                 <div class="typing-indicator" id="typing-indicator">
                     <div class="message-avatar">🤖</div>
                     <div class="typing-dots">
