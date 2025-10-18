@@ -3,7 +3,6 @@
 // State
 let currentUser = null;
 let currentConversationId = null;
-let currentLanguage = 'en';
 let isRecording = false;
 let recognition = null;
 
@@ -152,9 +151,6 @@ document.getElementById('logout-btn').addEventListener('click', async () => {
 function applyUserSettings(user) {
     // Apply theme
     setTheme(user.theme);
-    
-    // Apply language
-    setLanguage(user.language);
 }
 
 // Theme switching
@@ -186,48 +182,6 @@ document.querySelectorAll('[data-theme]').forEach(btn => {
         }
     });
 });
-
-// Language switching
-function setLanguage(lang) {
-    currentLanguage = lang;
-    
-    // Update active button
-    document.querySelectorAll('[data-lang]').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    
-    // Update UI text (if needed)
-    loadTranslations(lang);
-}
-
-document.querySelectorAll('[data-lang]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-        const lang = btn.dataset.lang;
-        setLanguage(lang);
-        
-        if (currentUser) {
-            try {
-                await fetch('/api/settings/language', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ language: lang })
-                });
-            } catch (error) {
-                console.error('Failed to save language:', error);
-            }
-        }
-    });
-});
-
-async function loadTranslations(lang) {
-    try {
-        const response = await fetch(`/api/translations/${lang}`);
-        const data = await response.json();
-        // Apply translations to UI elements if needed
-    } catch (error) {
-        console.error('Failed to load translations:', error);
-    }
-}
 
 // ============================================================
 // CONVERSATIONS
@@ -559,11 +513,6 @@ function showWelcomeScreen() {
                     <div class="feature-icon">🎨</div>
                     <div class="feature-title">Dark Mode</div>
                     <div class="feature-desc">Easy on your eyes, day or night</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <div class="feature-title">Multi-language</div>
-                    <div class="feature-desc">Support for multiple languages</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎤</div>

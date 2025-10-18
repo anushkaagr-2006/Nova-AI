@@ -19,16 +19,16 @@
         :root {
             --primary-color: #6366f1;
             --secondary-color: #8b5cf6;
-            --bg-light: #ffffff;
-            --bg-dark: #1a1a2e;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0a0a0f;
             --text-light: #1f2937;
-            --text-dark: #e5e7eb;
-            --sidebar-light: #f9fafb;
-            --sidebar-dark: #16213e;
-            --message-user-light: #e0e7ff;
-            --message-user-dark: #312e81;
-            --message-assistant-light: #f3f4f6;
-            --message-assistant-dark: #374151;
+            --text-dark: #f0f0f0;
+            --sidebar-light: #ffffff;
+            --sidebar-dark: #12121a;
+            --message-user-light: #6366f1;
+            --message-user-dark: #4f46e5;
+            --message-assistant-light: #ffffff;
+            --message-assistant-dark: #1a1a24;
         }
         
         * {
@@ -74,12 +74,16 @@
         
         .dark-mode .sidebar {
             background: var(--sidebar-dark);
-            border-right-color: #374151;
+            border-right-color: #2a2a35;
         }
         
         .sidebar-header {
             padding: 20px;
             border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode .sidebar-header {
+            border-bottom-color: #2a2a35;
         }
         
         .user-info {
@@ -133,12 +137,20 @@
             transition: background 0.2s;
         }
         
+        .light-mode .conversation-item {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .conversation-item {
+            color: var(--text-dark);
+        }
+        
         .light-mode .conversation-item:hover {
             background: rgba(99, 102, 241, 0.1);
         }
         
         .dark-mode .conversation-item:hover {
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(99, 102, 241, 0.15);
         }
         
         .conversation-item.active {
@@ -165,6 +177,10 @@
             border-top: 1px solid rgba(0,0,0,0.1);
         }
         
+        .dark-mode .sidebar-footer {
+            border-top-color: #2a2a35;
+        }
+        
         .settings-group {
             margin-bottom: 15px;
         }
@@ -174,6 +190,14 @@
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
+        }
+        
+        .light-mode .settings-label {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .settings-label {
+            color: var(--text-dark);
         }
         
         .settings-row {
@@ -189,6 +213,16 @@
             cursor: pointer;
             transition: all 0.3s;
             font-size: 14px;
+        }
+        
+        .light-mode .icon-btn {
+            color: var(--text-light);
+            border-color: #d1d5db;
+        }
+        
+        .dark-mode .icon-btn {
+            color: var(--text-dark);
+            border-color: #374151;
         }
         
         .icon-btn:hover {
@@ -234,9 +268,27 @@
             align-items: center;
         }
         
+        .light-mode .chat-header {
+            background: var(--sidebar-light);
+            border-bottom-color: #e5e7eb;
+        }
+        
+        .dark-mode .chat-header {
+            background: var(--sidebar-dark);
+            border-bottom-color: #2a2a35;
+        }
+        
         .chat-title {
             font-size: 20px;
             font-weight: 600;
+        }
+        
+        .light-mode .chat-title {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .chat-title {
+            color: var(--text-dark);
         }
         
         .header-actions {
@@ -268,6 +320,14 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+        }
+        
+        .light-mode .messages-container {
+            background: var(--bg-light);
+        }
+        
+        .dark-mode .messages-container {
+            background: var(--bg-dark);
         }
         
         .message {
@@ -316,7 +376,7 @@
         
         .light-mode .message.user .message-content {
             background: var(--message-user-light);
-            color: var(--text-light);
+            color: white;
         }
         
         .dark-mode .message.user .message-content {
@@ -327,11 +387,13 @@
         .light-mode .message.assistant .message-content {
             background: var(--message-assistant-light);
             color: var(--text-light);
+            border: 1px solid #e5e7eb;
         }
         
         .dark-mode .message.assistant .message-content {
             background: var(--message-assistant-dark);
             color: var(--text-dark);
+            border: 1px solid #2a2a35;
         }
         
         /* Code blocks */
@@ -346,6 +408,7 @@
         .message-content code {
             font-family: 'Courier New', monospace;
             font-size: 14px;
+            color: #e5e7eb;
         }
         
         .message-content p {
@@ -373,10 +436,12 @@
         
         .light-mode .typing-dots {
             background: var(--message-assistant-light);
+            border: 1px solid #e5e7eb;
         }
         
         .dark-mode .typing-dots {
             background: var(--message-assistant-dark);
+            border: 1px solid #2a2a35;
         }
         
         .typing-dot {
@@ -399,6 +464,16 @@
         .input-area {
             padding: 20px;
             border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .light-mode .input-area {
+            background: var(--sidebar-light);
+            border-top-color: #e5e7eb;
+        }
+        
+        .dark-mode .input-area {
+            background: var(--sidebar-dark);
+            border-top-color: #2a2a35;
         }
         
         .input-wrapper {
@@ -431,10 +506,11 @@
         .light-mode #message-input {
             background: white;
             color: var(--text-light);
+            border-color: #d1d5db;
         }
         
         .dark-mode #message-input {
-            background: var(--sidebar-dark);
+            background: var(--bg-dark);
             color: var(--text-dark);
             border-color: #374151;
         }
@@ -547,6 +623,14 @@
             font-weight: 600;
         }
         
+        .light-mode .form-label {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .form-label {
+            color: var(--text-dark);
+        }
+        
         .form-input {
             padding: 12px;
             border: 2px solid rgba(0,0,0,0.1);
@@ -557,6 +641,7 @@
         .light-mode .form-input {
             background: white;
             color: var(--text-light);
+            border-color: #d1d5db;
         }
         
         .dark-mode .form-input {
@@ -590,6 +675,14 @@
             text-align: center;
             margin-top: 16px;
             font-size: 14px;
+        }
+        
+        .light-mode .auth-toggle {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .auth-toggle {
+            color: var(--text-dark);
         }
         
         .auth-toggle a {
@@ -644,6 +737,14 @@
             margin-bottom: 32px;
         }
         
+        .light-mode .welcome-subtitle {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .welcome-subtitle {
+            color: var(--text-dark);
+        }
+        
         .welcome-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -659,6 +760,11 @@
             border: 1px solid rgba(99, 102, 241, 0.2);
         }
         
+        .dark-mode .feature-card {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        
         .feature-icon {
             font-size: 32px;
             margin-bottom: 8px;
@@ -669,9 +775,25 @@
             margin-bottom: 4px;
         }
         
+        .light-mode .feature-title {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .feature-title {
+            color: var(--text-dark);
+        }
+        
         .feature-desc {
             font-size: 14px;
             opacity: 0.7;
+        }
+        
+        .light-mode .feature-desc {
+            color: var(--text-light);
+        }
+        
+        .dark-mode .feature-desc {
+            color: var(--text-dark);
         }
         
         /* Mobile Responsive */
@@ -702,8 +824,13 @@
             background: transparent;
         }
         
-        ::-webkit-scrollbar-thumb {
-            background: rgba(99, 102, 241, 0.3);
+        .light-mode ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        
+        .dark-mode ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
         }
         
@@ -786,16 +913,6 @@
                     </div>
                 </div>
                 
-                <div class="settings-group">
-                    <label class="settings-label">Language</label>
-                    <div class="settings-row">
-                        <button class="icon-btn active" data-lang="en">🇺🇸 EN</button>
-                        <button class="icon-btn" data-lang="es">🇪🇸 ES</button>
-                        <button class="icon-btn" data-lang="fr">🇫🇷 FR</button>
-                        <button class="icon-btn" data-lang="de">🇩🇪 DE</button>
-                    </div>
-                </div>
-                
                 <button class="logout-btn" id="logout-btn">Logout</button>
             </div>
         </aside>
@@ -832,11 +949,6 @@
                             <div class="feature-icon">🎨</div>
                             <div class="feature-title">Dark Mode</div>
                             <div class="feature-desc">Easy on your eyes, day or night</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🌍</div>
-                            <div class="feature-title">Multi-language</div>
-                            <div class="feature-desc">Support for multiple languages</div>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">🎤</div>
