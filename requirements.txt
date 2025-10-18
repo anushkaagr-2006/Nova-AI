@@ -1,6 +1,23 @@
-openai
-flask
-python-dotenv
-langchain
-faiss-cpu
-PyPDF2
+# Flask Core
+flask>=3.0.0
+flask-cors>=4.0.0
+flask-sqlalchemy>=3.1.1
+flask-login>=0.6.3
+
+# Database
+sqlalchemy>=2.0.23
+
+# Security
+werkzeug>=3.0.1
+
+# Environment
+python-dotenv>=1.0.0
+
+# AI/ML
+huggingface_hub>=0.20.0
+
+# PDF Generation
+reportlab>=4.0.7
+
+# Utilities
+requests>=2.31.0
