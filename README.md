@@ -11,7 +11,7 @@ Interacting with AI systems can be complex and unintuitive. Nova-AI simplifies t
 ---
 ## Live Demo
 
-Check out the deployed Nova-AI here: [Live Demo](https://nova-ai-5lb9.onrender.comm)
+Check out the deployed Nova-AI here: [Live Demo](https://nova-ai-5lb9.onrender.com)
 
 ---
 
